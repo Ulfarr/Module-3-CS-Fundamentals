@@ -42,8 +42,9 @@ print directory
 
 4. Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
 
-function (name) {
-for (i = 0; i < directory.length; i++) 
-if (name = directory.name)
-print name
+function findName(name) {
+var name = name;
+for (i = 0; i < directory.length; i++); 
+if (name == directory.name);
+return name;
 };
