@@ -1,0 +1,109 @@
+Exercises
+
+1. What is the main difference between a stack and a queue?
+
+A: The stack is used to collect data in an LIFO priority collection that utilizes push to add and pop to remove. A Queue organizes requests and transactions in a FIFO utilizing enqueue and dequeue so that the application utilizing it doesnt become overwhelmed by recieveing requests while simultaneously responding to other ones.
+
+2. What are the similarities between stacks and queues?
+
+A: Both are data structures used to organize requests and support system functions.
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+A: In the case of UNDO and REDO where you are grabbing the last implimentation and either removing it or replacing it I would say that a LIFO stack would be most appropriate since the first time you select undo or redo you want to grab the last thhing that was entered or removed from the word processor.
+
+Programming Questions
+
+1. Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+
+A:
+PLAN
+
+INIT class STACK leters
+INIT words
+INIT reverseWord
+
+  INPUT characters into words
+    FOR each character in words
+    PUSH character to last position on the stack letter
+    END FOR
+
+  FOR each character in word
+    CALL stack.pop
+    APPEND characters to reversed
+  END FOR
+
+END FUCNTION
+
+CODE
+
+var letters =[];
+var words = 'Bloc!';
+var reverseWord = '';
+
+for(var 1 = 0; i < words.length; i++) {
+   letters.push(words[i]);
+}
+
+console.log (words);
+console.log (reverseWord);
+
+2. Implement the pop method of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first.
+
+A:
+class Stack {
+  constructor() {
+    this.pop = function(queue) {
+      var newQueue = [];
+      var itemToRemove = [];
+
+      for(var i = 0; i < queue.length; i++) {
+         if (i == queue.length -1) {
+            itemToRemove.push(queue[i]);
+         } else {
+            newQueue.push(queue[i]);
+         }
+      }
+      
+      return itemToRemove;
+
+    }
+  }
+}
+
+var stack = new Stack();
+console.log(stack.pop('Jameson'))
+
+
+3.Implement the enqueue and dequeue methods defined in the checkpoint inside your own Queue class.
+
+A:
+class Queue {
+   constructor() {
+      this.elements = []
+   }
+
+// enqueue
+
+enqueue(element)
+{
+    this.element.push(element);
+}
+
+// dequeue
+
+dequeue()
+{
+    if(this.isEmpty())
+        return "Empty";
+    return this.elements.shift();
+}
+
+isEmpty()
+{
+    return this.elements.length == 0;
+}
+
+}
+
+var queue = new Queue();
