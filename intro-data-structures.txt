@@ -1,0 +1,30 @@
+Exercises
+
+1. A line of people at an amusement park ride.
+
+The line is composed of members, represented as strings.
+There is a front to the line, as well as a back.
+When someone enters the line, place them at the end.
+People may leave the line whenever they see fit, and those behind them take their place.
+
+Given the above real-world information, use an array data structure to code the following solution.
+
+a) var line = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+b) line[5] = "Mary"
+
+c) line[2]
+
+d) line.indexOf("Emily") 
+response was a -1
+e) line.splice(1, 0, "Melissa");
+
+f) line.splice(3, 1); (if you include "Melissa" in the array it would be 4 instead of 3)
+
+2. Provide another real-world example that you can model using a data structure.
+
+A: Organizing a que for people who need to receive services from the DMV.
+
+3. How would your data structure allow developers to access and manipulate the data?
+
+A: The data structure would be able to recieve new elements as well as remove elements who have concluded their purpose and are no longer in the que. Also adjust the array for elements that must choose to remove themselves from the que because they had to leave the DMV before meeting with a representative.
