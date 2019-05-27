@@ -1,0 +1,176 @@
+Exercises
+
+1. What is a hash table?
+A: A data structure that stores values by connecting them to a key and forming key-value pairs.
+
+2. What is hashing?
+A: Utilizing a hashing function to convert data into hash code.
+
+3. How does a hash table store data?
+A: by converting the key into a hash code and storing it in an array index.
+
+4. How are hash tables and objects different?
+A: Hash tables are collections of similar data, while objects are able to put different types of data together.
+
+5. Determine whether you would use a hash table or an object to store each of the following pieces of data:
+
+a)A list of pets and their unique names.(Hash Table)
+
+b) The name, age, and the birthday of your best friend.(Object)
+
+c) The name and location of every company in a given city.(Hash Table)
+
+d) All of the books checked out from a library by a particular individual.(Hash Table)
+
+e) The primary and secondary phone numbers for a contact.(Object)
+
+Programming Questions
+
+1. Build a system that allows a sales associate to enter a customer's name, address, and phone number into the system and look up customers using their phone numbers. Store this information in a hash table.
+
+A:
+var hash = (string, max) => {
+  var hash = 0;
+  for (var i = 0; i < string.length; i++) {
+    hash += string.charCodeAt(i);
+  }
+  return hash % max;
+};
+
+let HashTable = function() {
+
+  let storage = [];
+  const storageLimit = 100;
+
+  this.add = function(key, value) {
+    var index = hash(key, storageLimit);
+    if (storage[index] === undefined) {
+      storage[index] = [
+	[key,value]
+      ];
+    } else {
+      var inserted = false;
+      for (var i = 0; i < storage[index].length; i++) {
+	if (storage[index][i][0] === key) {
+          storage[index][i][1] = value;
+          inserted = true;
+        }
+      }
+      if (inserted === false) {
+        storage[index].push([key,value]);
+      }
+    }
+  };
+
+  this.lookup = function(key) {
+    var index = hash(key, storageLimit);
+    if (storage[index] === undefined) {
+      return undefined;
+    } else {
+      for (var i = 0; i < storage[index].length; i++) {
+        if (storage[index][i][0] === key) {
+          return storage[index][i][1];
+        }
+      }
+    }
+  };
+};
+
+var ht = new HashTable();
+
+2. Create a hash table that allows a store owner to track their store's inventory and quantity.
+
+A:
+var hash = (string,max) => {
+  var hash = 0
+  for(var i = 0; i < string.length; i++) {
+    hash += string.charCodeAt(i)
+  }
+  return hash % max;
+};
+
+let HashTable = function() {
+  let storage = [];
+  const storageLimit = 5;
+
+  this.add = function(key, value) {
+    var index = hash(key, storageLimit);
+    if (storage[index] === undefined) {
+      storage[index] = [
+         [key, value]
+      ];
+    } else {
+      var inserted = false;
+      for (var i = 0; i < storage[index].length; i++) {
+        if (storage[index][i][0] === key ) {
+          storage[index][i][1] = value;
+          inserted = true;
+	}
+      }
+      if (inserted === false) {
+        storage[index].push([key, value]);
+      }
+    }
+  };
+
+  this.search = function(key) {
+    var indes = hash(key, storageLimit);
+    if (storage[index] === undefined) {
+      return undefined;
+    } else {
+      for (var i = 0; i <storage[index].length; i++) {
+        if (storage[index][i][0] === key) {
+          return storage[index][i][1];
+	}
+      }
+    }
+  };
+
+};
+
+
+var ht = new HashTable();
+
+3. Create a hash table that allows digital copies of newspapers to be entered and searched by publisher and publication date.
+
+A:
+let hash = (string, max) => {
+  var hash = 0;
+  for (var i = 0; i < string.length; i++) {
+    hash += string.charCodeAt(i);
+  }
+  return hash % max;
+}
+
+class Newspaper {
+  constructor() {
+    this.storage = [];
+    this.storageLimit = 60;
+  }
+
+  add(publisher, pubDate) {
+    let key = publisher + pubDate;
+    let index = hash(key, this.storageLimit);
+    let data = [publisher, pubDate];
+      if (this.storage[index] === undefined) {
+        this.storage[index] = [ ];
+    }
+    this.storage[index].push(data);
+    }
+
+  search(publisher, pubDate) {
+    let key = publisher + pubDate;
+    let index = hash(key, this.storageLimit);
+    let result = [];
+
+    if (!this.storage[index]) { return 'NO results were found for this search' }
+      this.storage[index].forEach(entry => {
+       if (entry[0] === publisher && entry[1] === pubDate) {
+        result.push(entry);
+      }
+    })
+    return result;
+  }
+}
+
+let news = new Newspaper();
