@@ -1,0 +1,84 @@
+Exercises
+
+1. What is a binary tree and what makes it unique to other trees?
+
+A: A binary tree is a data structure which has a node as its root data, and branches into 2 child nodes. When more data is added each child will have 2 children of their own.
+
+2. What is a heuristic?
+
+A: A heauristic is a guess that an algorithm makes to solve a complex problem sooner by sacrificeing accuracy.
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics?
+
+A: One example is when trying to predict stock market. The ability to look at past data and develop patterns to better predict fluxuation in the markets for the future.
+
+4. What is the difference between a depth-first search and a breadth-first search?
+
+A: DFS goes from one branch at a times, and when it reaches the end it moves to the start of another branch.BFS searches an entire row of nodes before proceeding to the next row.
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+
+A: A graph that connects each node as a two way street. It does not form any loops and doesnt assign travel cost between the nodes.
+
+6. What kind of graph is a binary search tree?
+
+A: Depending on the data, a binary search tree can be weighted or unweighted with an A-cyclic, and undirected graph.
+
+Programming Questions
+
+1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+A: Since we know the organizeation of the tree already we can see the left child contains a lesser value to its parent. Therefore, we can simply start at the root and move down and to the left if the value is less than then root and right if otherwise. This process continues until we find the node equal to the one we are looking for or until all nodes have been examinted. At which point we will exit the while loop and return a statement that lets the user know if we have found the value in the tree or not.
+
+function findNumber(numberInquiry) {
+  var currentNode = this.root;
+
+  while (currentNode != null) {
+    if (numberInquiry === currentNode.value) {
+      return "The value " + currentNode.value + " exists in the list";
+    } else if (numberInquiry < currentNode.value) {
+      currentNode = currentNode.left;
+    } else {
+      currentNode = currentNode.right;
+    }
+  }
+  return "The value " + numberInquiry + " does not exist in the list";
+}
+
+2. Given a Binary Search Tree and two nodes, n1 and n2, write a function that finds the distance between the two nodes.
+
+A: Finding the distance between two nodes requires one to know the node that is the lowest common ancestor of the two nodes we are passing. Then we can measure the distance from the LCS to the 2 nodes being passed.
+
+function findDistance(root, node1, node2) {
+
+  var ancestor = lca(root, node1, node2);
+  var depth1 = findDepth(root, ancestor);
+  var depth2 = findDepth(root, node1);
+  var depth3 = findDepth(root, node2);
+
+  return depth2 + depth3 - 2 * depth1;
+}
+
+function lca(currentNode, node1, node2) {
+  if (currentNode == null)
+    return null;
+  if (currentNode == node1 || currentNode == node2)
+    return currentNode;
+  var left = lca(currentNode.left, node1, node2);
+  var right = lca(currentNode.right, node1, node2);
+  if (left != null && right != null)
+    return currentNode;
+  return left == null? right: left;
+}
+
+function findDepth(currentNode, targetNOde) {
+  if (currentNode == null)
+    return -1;
+  if (currentNode == targetNode)
+    return 0;
+  var left = getDepth(currentNode.left, targetNode);
+  var right = getDepth(currentNode.right, targetNode);
+  if (left == -1 && right == -1)
+    return -1;
+  return left == -1? right + 1: let + 1;
+}
