@@ -1,0 +1,65 @@
+Exercises
+
+1. Using proper pseudo-code, describe the following primitive algorithms:
+
+a) Making coffee;
+b) Washing dishes;
+c) A choice of your own.
+
+a)
+FUNCTION brewCoffee
+
+SET potOn to true
+
+WHILE coffeeAmount < 22g && coffeeAmount
+  SET addBeans to true
+
+IF coffeeAmount -- 22g && addBeans = false
+  CALL grindCoffee
+  CALL placeFilter
+
+IF filterPlaced = true && coffeeGround = true
+  WHILE waterLevel < 360g
+    CALL addWater
+  CALL coffeeReady
+
+END FUNCTION
+
+b)
+FUNCTION washDishes
+
+IF dirtyDishes = true
+  CALL addToDishwasher
+
+IF dishesAdded = true
+  CALL addSoap
+  CALL startDishwasher
+
+END FUNCTION
+
+c)
+FUNCTION doSchoolWork
+
+WHILE schoolWorkCompleted = false
+  CALL completeSchoolWork
+ELSE
+  CALL submitSChoolWork
+
+END FUNCTION
+
+2. As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm. It doesn't need to be a tech example (such as a recipe or manufacturing a product). Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+
+A: 
+  1) Instagrams explore page provides users with new content that they connect
+  with causing users to spend more time on the app
+
+  2) Spotify's playlist algorithm curates new music to listeners which gives Spotify
+  an edge over other streaming platforms.
+
+  3) YouTube serves more relevant content than other video platforms.
+
+
+3. Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+A: An efficient algorithm operates quickly, has been written using best practices,
+is broken down into small parts, and has been simplified as much as possible.
