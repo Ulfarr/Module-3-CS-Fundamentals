@@ -2,7 +2,7 @@ Exercises
 
 1. What is a binary tree and what makes it unique to other trees?
 
-A: A binary tree is a data structure which has a node as its root data, and branches into 2 child nodes. When more data is added each child will have 2 children of their own.
+A: A binary tree is a data structure which has a node as its root data, and branches into up to 2 child nodes. When more data is added each child can have 2 children of their own.
 
 2. What is a heuristic?
 
@@ -10,7 +10,7 @@ A: A heauristic is a guess that an algorithm makes to solve a complex problem so
 
 3. What is another problem besides the shortest-path problem that requires the use of heuristics?
 
-A: One example is when trying to predict stock market. The ability to look at past data and develop patterns to better predict fluxuation in the markets for the future.
+A: Another problem would be language recognition. When developing algorithms for trying to understand what the user is asking for, heuristics would be used to look for word association.
 
 4. What is the difference between a depth-first search and a breadth-first search?
 
@@ -22,7 +22,7 @@ A: A graph that connects each node as a two way street. It does not form any loo
 
 6. What kind of graph is a binary search tree?
 
-A: Depending on the data, a binary search tree can be weighted or unweighted with an A-cyclic, and undirected graph.
+A: A binary search tree would be unweighted with an A-cyclic, and directed graph.
 
 Programming Questions
 
@@ -51,12 +51,11 @@ A: Finding the distance between two nodes requires one to know the node that is 
 
 function findDistance(root, node1, node2) {
 
-  var ancestor = lca(root, node1, node2);
-  var depth1 = findDepth(root, ancestor);
+  var depth1 = lca(root, node1, node2);
   var depth2 = findDepth(root, node1);
   var depth3 = findDepth(root, node2);
 
-  return depth2 + depth3 - 2 * depth1;
+  return depth2 + depth3 * depth1;
 }
 
 function lca(currentNode, node1, node2) {
@@ -71,7 +70,7 @@ function lca(currentNode, node1, node2) {
   return left == null? right: left;
 }
 
-function findDepth(currentNode, targetNOde) {
+function findDepth(currentNode, targetNode) {
   if (currentNode == null)
     return -1;
   if (currentNode == targetNode)
