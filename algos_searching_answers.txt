@@ -1,0 +1,63 @@
+Exercises
+
+1. What is a real-life scenario that uses linear search?
+
+A: A teacher doing role call to check if thier students are absent or present for class.
+
+2. What is a real-life scenario that uses binary search?
+
+A: Searching through an alphabetized rolodex for a specific contacts information. 
+
+3. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search?
+
+A: It would take seven iterations to locate the letter G in the alphabetized list.
+
+4. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?
+
+A: It would only require three iterations since the first search would elminiate the letters from A-D, the second would remove E & F, and the final iteration would end with the letter G.
+
+5. Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+A: Since the collection is unsorted the linear search would be more efficient. A binary search would require the items to be sorted.
+
+6. Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+A: In this case the Binary search would be much more efficient since the list is sorted it could eliminate the majority of the redundancy while also moving down the list at a faster rate than a linear search.
+
+Programming Assignment
+
+1. You and a friend have set a wager to see who can find the word "Albatross" in the dictionary the fastest. Write a program to allow you to win the bet.
+
+A: 
+function binarySearch (array, word) {
+  let left = 0
+  let right = array.length -1
+  if (word < array[left] || word > array[right]) {
+    return false
+  }
+  while(left <=right) {
+    let middle = math.floor ((left + right)/2)
+    if (array[middle] === word) {
+      return middle
+    } else if (array[middle] < word) {
+      left = middle + 1
+    } else {
+      right = middle - 1
+    }
+  }
+  return null
+}
+
+2. You work at a pet store, and a child has asked you to net the only white-spotted goldfish from the fish tank. Write a program that will help you net the right fish.
+
+A: 
+function findFish(collection , fish) {
+  for (let i = 0; i < collection.length; i++) {
+    if (collection[i] == fish) {
+      console.log('I found it!')
+      return collection[i];
+    }
+  }
+  console.log("Sorry I'll try again")
+  return -1
+}
