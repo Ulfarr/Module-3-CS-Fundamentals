@@ -1,0 +1,51 @@
+Exercises
+
+1. Implement a solution for bubble sort.
+
+A: 
+FUNCTION bubbleSort(collection)
+  REPEAT
+    SET swapped to false
+
+      FOR first index of collection to last index of collection -1
+        IF array[i] > array[i + 1]
+          SET tmp to array[i]
+          SET array[i] to array[i + 1]
+  	  SET array [i + 1] to tmp
+	  SET swapped to true
+        END IF
+      END FOR
+
+  UNTIL swapped equals false
+    RETURN collection
+END FUNCTION
+
+2. Write pseudocode for quicksort.
+
+A: 
+FUNCTION quickSort(collection)
+  IF collection length <= 1
+    RETURN collection
+  ELSE 
+    SET left, right to empty arrays
+    SET pivot to last item in collection
+    SET length to length of collection
+
+    FOR index = 0 to length -1
+      IF collection[i] <= pivot
+        PUSH collection[i] to last index of left
+      ELSE 
+        PUSH collection[i] to last index of right
+      END IF
+    END FOR
+    RETURN quickSort(left).concat(pivot, quickSort(right));
+  END IF
+END FUNCTION
+
+3. We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others. Walking through each algorithm with a few sample collections may help.
+
+A: Both forms of sorting use a time complexity of O(n log n) otherwise known as divide and conquer method which is more efficient in that regardless of the size of the collection they will only need to iterate through it once.
+
+4. All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+
+A: Bucket Sort seperates a collections values into buckets, each bucket then individually sorts itself through recursion and sorted buckets are finally placed back into the collection. The ideal input for bucket sort is values that are uniformly distributed over a range.
