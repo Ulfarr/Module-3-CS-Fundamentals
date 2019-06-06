@@ -33,10 +33,10 @@ function binarySearch (array, word) {
   let left = 0
   let right = array.length -1
   if (word < array[left] || word > array[right]) {
-    return false
+    return null
   }
   while(left <=right) {
-    let middle = math.floor ((left + right)/2)
+    let middle = Math.floor ((left + right)/2)
     if (array[middle] === word) {
       return middle
     } else if (array[middle] < word) {
