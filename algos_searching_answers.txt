@@ -2,7 +2,7 @@ Exercises
 
 1. What is a real-life scenario that uses linear search?
 
-A: A teacher doing role call to check if thier students are absent or present for class.
+A: Searching through each name in a phone book until you find the specific entry and you are looking for.
 
 2. What is a real-life scenario that uses binary search?
 
