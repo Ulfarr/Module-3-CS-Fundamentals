@@ -3,22 +3,25 @@ Exercises
 1. Implement a solution for bubble sort.
 
 A: 
-FUNCTION bubbleSort(collection)
-  REPEAT
-    SET swapped to false
+var a = [98, 163, 13, 756, 222, 765, 543, 7];
 
-      FOR first index of collection to last index of collection -1
-        IF array[i] > array[i + 1]
-          SET tmp to array[i]
-          SET array[i] to array[i + 1]
-  	  SET array [i + 1] to tmp
-	  SET swapped to true
-        END IF
-      END FOR
+function bubbleSort(a) {
+  var swapped
+  do {
+      swapped = false;
+      for  (var i = 0; i < a.length -1; i++) {
+        if (a[i] > a[i + 1]) {
+          var temp = a[i];
+          a[i] = a[i + 1];
+          a[i + 1] = temp;
+          swapped = true;
+        }
+      }
+   } while (swapped) ;
+}
 
-  UNTIL swapped equals false
-    RETURN collection
-END FUNCTION
+bubbleSort(a)
+console.log(a)
 
 2. Write pseudocode for quicksort.
 
